@@ -40,7 +40,7 @@ const Header = () => {
 					>
 						<MenuIcon />
 					</IconButton>
-					<Typography variant='h6' noWrap>BizX</Typography>
+					<Typography variant='h6' noWrap>App</Typography>
 					<div className={ classes.search }>
 						<div className={ classes.searchIcon }>
 							<SearchIcon />
