@@ -10,12 +10,17 @@ const useStyles = makeStyles(theme => ({
 		cursor: 'pointer',
 	},
 	link: {
-		color: '#333',
+		color: theme.palette.primary.main,
 		textDecoration: 'none',
 		cursor: 'pointer',
 
 		'&:hover': {
+			color: theme.palette.primary.main,
 			textDecoration: 'underline',
+		},
+		'&:active, &:focus': {
+			textDecoration: 'underline',
+			outline: 'none',
 		},
 	},
 	active: {
@@ -34,7 +39,6 @@ const Link = ({
 	external = false,
 	nav = false,
 	onClick,
-	target = '_self',
 	to,
 	unstyled = false,
 	...props,
@@ -43,7 +47,7 @@ const Link = ({
 
 	return (
 		external
-		? <a { ...props } href={ to } onClick={ onClick } target={ target } className={ unstyled ? classes.base : classes.link }>
+		? <a { ...props } href={ to } onClick={ onClick } className={ unstyled ? classes.base : classes.link }>
 				{ children }
 			</a>
 		: actionLink
@@ -56,14 +60,13 @@ const Link = ({
 				exact
 				to={ to }
 				onClick={ onClick }
-				target={ target }
 				className={ unstyled ? classes.base : classes.link }
 				activeClassName={ classes.active }
 				activeStyle={{ ...activeStyle, fontWeight: 'bold', cursor: 'default' }}
 			>
 				{ children }
 			</NavLink>
-		: <RouterLink { ...props } to={ to } onClick={ onClick } target={ target } className={ unstyled ? classes.base : classes.link }>
+		: <RouterLink { ...props } to={ to } onClick={ onClick } className={ unstyled ? classes.base : classes.link }>
 				{ children }
 			</RouterLink>
 	)
@@ -77,7 +80,6 @@ Link.propTypes = {
 	external: PropTypes.bool,
 	nav: PropTypes.bool,
 	onClick: PropTypes.func,
-	target: PropTypes.oneOf(['_self', '_blank']),
 	to: PropTypes.oneOfType([PropTypes.string, PropTypes.object]),
 	unstyled: PropTypes.bool,
 }
