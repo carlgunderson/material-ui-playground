@@ -8,6 +8,7 @@ import { requireArtist } from '../../redux/actions'
 import Button from '../common/Button'
 import Link from '../common/Link'
 import TextInput from '../common/TextInput'
+import ExampleForm from '../ExampleForm'
 
 const MusicPage = ({}) => {
 	const dispatch = useDispatch()
@@ -45,6 +46,9 @@ const MusicPage = ({}) => {
 							{
 								artistData && <p>{ artistData.primaryGenreName }</p>
 							}
+							<div style={{ maxWidth: '800px', margin: '2em auto 0em', padding: '2em', border: '1px solid green' }}>
+								<ExampleForm />
+							</div>
 						</div>
 					</Grid>
 				</Grid>

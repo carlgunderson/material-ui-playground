@@ -1,9 +1,9 @@
 import React from 'react'
 import { useSelector } from 'react-redux'
 
-import { selectModalName, selectModalData } from '../../redux/selectors'
+import { selectModalName, selectModalData } from '../../../redux/selectors'
 import ModalContainer from './ModalContainer'
-import RedirectContactModal from '../../contact-redirect-queue/modals/RedirectContactModal'
+import ExampleModal from '../../modals/ExampleModal'
 
 const Modal = () => {
 	const name = useSelector(selectModalName)
@@ -12,7 +12,7 @@ const Modal = () => {
 
 	switch(name) {
 		case 'redirect-contact-modal':
-			modal = <RedirectContactModal data={ data } />
+			modal = <ExampleModal data={ data } />
 			break
 		default:
 			modal = null
